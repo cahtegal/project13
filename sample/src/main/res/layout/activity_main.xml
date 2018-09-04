@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorRed"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layAdds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="visible"
+            app:adSize="SMART_BANNER"
+            app:adUnitId="ca-app-pub-5730449577374867/1529757026" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layAdds"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/iv_left_arrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/left_arrow" />
+
+            <SeekBar
+                android:id="@+id/sb"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/piano_bar"
+                android:padding="0dp"
+                android:progressDrawable="@null"
+                android:thumb="@drawable/seekbar_thumb" />
+
+            <Button
+                android:id="@+id/iv_right_arrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/right_arrow" />
+
+            <Button
+                android:id="@+id/iv_music"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/music"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.chengtao.pianoview.view.PianoView
+                android:id="@+id/pv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/adViewBottom"/>
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adViewBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"
+                app:adSize="SMART_BANNER"
+                app:adUnitId="ca-app-pub-5730449577374867/1529757026" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <TextView
+                android:id="@+id/teksPleaseWait"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Please wait ..."
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/seekbarLoading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progressTint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/teksPersen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textAlignment="center"
+                android:textColor="#80000000"
+                android:textSize="17dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
